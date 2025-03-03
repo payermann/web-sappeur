@@ -34,3 +34,7 @@
   display: flex;
   gap: 1rem;
 }
+
+.alert {
+  color: #ff0000;
+}
