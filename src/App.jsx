@@ -3,7 +3,13 @@ import logo from "./assets/logo.svg";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [size, setSize] = useState(0);
+  const [mines, setMines] = useState(0);
+
+  const startGame = () => {
+    setSize(document.getElementById("size").value);
+    setMines(document.getElementById("mines").value);
+  };
 
   return (
     <>
@@ -22,8 +28,12 @@ function App() {
           <input type="number" id="mines" name="mines" />
         </div>
         <div>
-          <button>Start</button>
+          <button onClick={startGame}>Start</button>
         </div>
+      </div>
+      <div>
+        <h3>Size: {size}</h3>
+        <h3>Mines: {mines}</h3>
       </div>
     </>
   );
