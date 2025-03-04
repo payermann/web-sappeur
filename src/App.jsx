@@ -2,6 +2,7 @@ import { useState } from "react";
 import logo from "./assets/logo.svg";
 import "./App.css";
 import { feldgenerator } from "./feldgenerator";
+import Field from "./Field";
 
 function App() {
   const [size, setSize] = useState(0);
@@ -61,7 +62,7 @@ function App() {
         </div>
       </div>
       <div className="alert">{alert}</div>
-      <div className="field"></div>
+      <Field userField={userField} />
     </>
   );
 }
