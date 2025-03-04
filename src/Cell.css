@@ -1,0 +1,9 @@
+.notOpenCell {
+  background-color: #384c59;
+  box-shadow: inset 1px -1px 0px #161e24, inset -1px 1px 0px #5a7a8e;
+}
+.notOpenCell:hover {
+  cursor: pointer;
+  background-color: #435662;
+  box-shadow: inset 1px -1px 0px #161e24, inset -1px 1px 0px #ffc145;
+}

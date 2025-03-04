@@ -1,0 +1,12 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+  margin: 1em;
+}
+
+.yLine {
+  margin: auto;
+  display: flex;
+  gap: 0.2em;
+}

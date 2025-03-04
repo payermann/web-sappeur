@@ -1,23 +1,34 @@
 import Cell from "./Cell";
+import "./Field.css";
 
 function Field({ userField }) {
+  function handleCellClick(y, x) {
+    console.log(`click! (${y}, ${x})`);
+  }
   function updateField() {
-    console.log(userField);
+    const fieldSize = userField.length;
     const field = [];
-    for (let y = 0; y < userField.length; y++) {
+    for (let y = 0; y < fieldSize; y++) {
       const yLine = [];
       for (let x = 0; x < userField[y].length; x++) {
-        yLine.push(<Cell key={`${y}-${x}`} value={userField[y][x]} />);
+        yLine.push(
+          <Cell
+            key={`${y}-${x}`}
+            value={userField[y][x]}
+            fieldSize={fieldSize}
+            onClick={() => handleCellClick(y, x)}
+          />
+        );
       }
       field.push(
-        <div key={y}>
-          <h2>{y}</h2>
+        <div className="yLine" style={{ minHeight: 800 / fieldSize }} key={y}>
           {yLine}
         </div>
       );
     }
+
     return field;
   }
-  return <div>{updateField()}</div>;
+  return <div className="field">{updateField()}</div>;
 }
 export default Field;
