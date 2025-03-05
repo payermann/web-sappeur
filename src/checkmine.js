@@ -1,4 +1,4 @@
-export function check_mine(feld, y, x) {
+export function checkMine(feld, y, x) {
   let counter = 0;
   for (let iy = y - 1; iy <= y + 1; iy++) {
     for (let ix = x - 1; ix <= x + 1; ix++) {

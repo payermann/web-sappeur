@@ -66,7 +66,7 @@ function App() {
         </div>
       </div>
       <div className="alert">{alert}</div>
-      <Field userField={userField} />
+      <Field userField={userField} field={field} />
     </>
   );
 }
