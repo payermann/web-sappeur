@@ -3,8 +3,10 @@ import logo from "./assets/logo.svg";
 import "./App.css";
 import { feldgenerator } from "./feldgenerator";
 import Field from "./Field";
+import Smile from "./Smile";
 
 function App() {
+  const [gameStatus, setGameStatus] = useState("in process");
   const [size, setSize] = useState(0);
   const [mines, setMines] = useState(0);
 
@@ -37,11 +39,13 @@ function App() {
     const forUser = true;
     setField(feldgenerator(inputMines, inputSize, notForUser));
     setUserField(feldgenerator(inputMines, inputSize, forUser));
+    setGameStatus("in process");
   };
 
   return (
     <>
       <div>
+        <Smile status={gameStatus} />
         <img src={logo} className="logo" alt="logo" />
       </div>
       <h1>Hi, it's a sapper game.</h1>

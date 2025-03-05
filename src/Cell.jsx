@@ -2,7 +2,7 @@ import "./Cell.css";
 
 function Cell({ value, fieldSize, onClick }) {
   const renderCell = () => {
-    const minWidth = 800 / fieldSize;
+    const minWidth = 412 / fieldSize;
     switch (value) {
       case " ":
         return (

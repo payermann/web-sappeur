@@ -21,7 +21,7 @@ function Field({ userField }) {
         );
       }
       field.push(
-        <div className="yLine" style={{ minHeight: 800 / fieldSize }} key={y}>
+        <div className="yLine" style={{ minHeight: 600 / fieldSize }} key={y}>
           {yLine}
         </div>
       );
