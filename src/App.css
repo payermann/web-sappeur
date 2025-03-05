@@ -38,7 +38,10 @@
 @media screen and (max-width: 724px) {
   .form {
     flex-direction: column;
-    align-items: center;
+    input {
+      margin-top: 10px;
+      width: 90%;
+    }
   }
 }
 
