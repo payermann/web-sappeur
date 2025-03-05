@@ -1,12 +1,13 @@
 .field {
   display: flex;
   flex-direction: column;
-  gap: 0.2em;
+  gap: 0.1em;
   margin-top: 1em;
+  width: 100%;
 }
 
 .yLine {
   margin: auto;
   display: flex;
-  gap: 0.2em;
+  gap: 0.1em;
 }

@@ -1,8 +1,8 @@
 import "./Cell.css";
 
-function Cell({ value, fieldSize, onClick }) {
+function Cell({ value, fieldSize, onClick, innerWidth }) {
   const renderCell = () => {
-    const minWidth = 412 / fieldSize;
+    const minWidth = innerWidth / fieldSize;
     switch (value) {
       case " ":
         return (
