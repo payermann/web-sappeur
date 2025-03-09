@@ -3,8 +3,9 @@ import Cell from "./Cell";
 import "./Field.css";
 import { checkMine } from "./checkmine";
 import { checkFlag } from "./checkflag";
+import _ from "lodash";
 
-function Field({ userField, field }) {
+function Field({ userField, field, start, setStart }) {
   const [innerWidth, setInnerWidth] = useState(calcSize());
   const [updatedUserField, setUpdatedUserField] = useState(userField);
   const [counterFlag, setCounterFlag] = useState(0);
@@ -21,6 +22,13 @@ function Field({ userField, field }) {
     }
   }
   useEffect(() => {
+    if (start) {
+      setUpdatedUserField(userField);
+      setCounterFlag(0);
+      setStart(false);
+    }
+  }, [start, userField, setStart, setCounterFlag]);
+  useEffect(() => {
     const handleResize = () => {
       setInnerWidth(calcSize());
     };
@@ -30,28 +38,26 @@ function Field({ userField, field }) {
     };
   }, []);
   function handleCellClick(y, x, eventType = "leftClick") {
-    const newUserField = updatedUserField.map((row) => [...row]);
+    const newUserField = _.cloneDeep(updatedUserField);
     if (eventType == "rightClick") {
-      console.log(userField);
-      userField[y][x] = checkFlag(userField, y, x);
+      newUserField[y][x] = checkFlag(newUserField, y, x);
       const newCounterFlag =
-        userField[y][x] == " " ? counterFlag - 1 : counterFlag + 1;
+        newUserField[y][x] == " " ? counterFlag - 1 : counterFlag + 1;
       setUpdatedUserField(newUserField);
       setCounterFlag(newCounterFlag);
-      console.log(counterFlag);
       return;
     }
   }
   function updateField() {
-    const fieldSize = userField.length;
+    const fieldSize = updatedUserField.length;
     const field = [];
     for (let y = 0; y < fieldSize; y++) {
       const yLine = [];
-      for (let x = 0; x < userField[y].length; x++) {
+      for (let x = 0; x < updatedUserField[y].length; x++) {
         yLine.push(
           <Cell
             key={`${y}-${x}`}
-            value={userField[y][x]}
+            value={updatedUserField[y][x]}
             fieldSize={fieldSize}
             onClick={() => handleCellClick(y, x)}
             onContextMenu={(event) => {
@@ -75,6 +81,11 @@ function Field({ userField, field }) {
 
     return field;
   }
-  return <div className="field">{updateField()}</div>;
+  return (
+    <div>
+      <div className="field">{updateField()}</div>
+      <h2>{counterFlag} 🚩</h2>
+    </div>
+  );
 }
 export default Field;

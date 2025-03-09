@@ -14,6 +14,7 @@ function App() {
   const [userField, setUserField] = useState([]);
 
   const [alert, setAlert] = useState("");
+  const [start, setStart] = useState(false);
 
   const startGame = () => {
     const inputSize = document.getElementById("size").value;
@@ -40,6 +41,7 @@ function App() {
     setField(feldgenerator(inputMines, inputSize, notForUser));
     setUserField(feldgenerator(inputMines, inputSize, forUser));
     setGameStatus("in process");
+    setStart(true);
   };
 
   return (
@@ -66,7 +68,12 @@ function App() {
         </div>
       </div>
       <div className="alert">{alert}</div>
-      <Field userField={userField} field={field} />
+      <Field
+        userField={userField}
+        field={field}
+        start={start}
+        setStart={setStart}
+      />
     </>
   );
 }
