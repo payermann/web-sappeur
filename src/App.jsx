@@ -73,6 +73,7 @@ function App() {
         field={field}
         start={start}
         setStart={setStart}
+        setGameStatus={setGameStatus}
       />
     </>
   );

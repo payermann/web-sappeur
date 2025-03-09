@@ -10,6 +10,10 @@ function Cell({ value, fieldSize, onClick, onContextMenu, innerWidth }) {
         break;
       case "!FLAG!":
         cellType = "flag";
+        value = "";
+        break;
+      case true:
+        cellType = "bomb";
         break;
       default:
         cellType = "openCell";
@@ -21,7 +25,9 @@ function Cell({ value, fieldSize, onClick, onContextMenu, innerWidth }) {
         style={{ minWidth: minWidth }}
         onClick={onClick}
         onContextMenu={onContextMenu}
-      ></div>
+      >
+        {value}
+      </div>
     );
   };
 

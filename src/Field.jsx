@@ -3,9 +3,10 @@ import Cell from "./Cell";
 import "./Field.css";
 import { checkMine } from "./checkmine";
 import { checkFlag } from "./checkflag";
-import _ from "lodash";
+import { checkWin } from "./checkwin";
+import _, { size } from "lodash";
 
-function Field({ userField, field, start, setStart }) {
+function Field({ userField, field, start, setStart, setGameStatus }) {
   const [innerWidth, setInnerWidth] = useState(calcSize());
   const [updatedUserField, setUpdatedUserField] = useState(userField);
   const [counterFlag, setCounterFlag] = useState(0);
@@ -46,6 +47,32 @@ function Field({ userField, field, start, setStart }) {
       setUpdatedUserField(newUserField);
       setCounterFlag(newCounterFlag);
       return;
+    } else {
+      if (field[y][x] === true && newUserField[y][x] !== "!FLAG!") {
+        setGameStatus("fail");
+        setUpdatedUserField(field);
+        return;
+      } else if (newUserField[y][x] === "!FLAG!") {
+        return;
+      } else {
+        newUserField[y][x] = checkMine(field, y, x);
+
+        if (newUserField[y][x] === 0) {
+          const size = newUserField.length;
+          for (let i = y - 1; i <= y + 1; i++) {
+            for (let j = x - 1; j <= x + 1; j++) {
+              if (i >= 0 && i < size && j >= 0 && j < size) {
+                newUserField[i][j] = checkMine(field, i, j);
+              }
+            }
+          }
+        }
+        setUpdatedUserField(newUserField);
+      }
+    }
+    if (checkWin(newUserField, field)) {
+      setGameStatus("win");
+      setUpdatedUserField(field);
     }
   }
   function updateField() {
