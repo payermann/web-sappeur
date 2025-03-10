@@ -1,4 +1,4 @@
-import "./Cell.css";
+import "./css/Cell.css";
 
 function Cell({ value, fieldSize, onClick, onContextMenu, innerWidth }) {
   const renderCell = () => {

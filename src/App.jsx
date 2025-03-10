@@ -1,7 +1,7 @@
 import { useState } from "react";
 import logo from "./assets/logo.svg";
-import "./App.css";
-import { feldgenerator } from "./feldgenerator";
+import "./css/App.css";
+import { feldgenerator } from "./js/feldgenerator";
 import Field from "./Field";
 import Smile from "./Smile";
 

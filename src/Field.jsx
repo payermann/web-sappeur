@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import Cell from "./Cell";
-import "./Field.css";
-import { checkMine } from "./checkmine";
-import { checkFlag } from "./checkflag";
-import { checkWin } from "./checkwin";
+import "./css/Field.css";
+import { checkMine } from "./js/checkmine";
+import { checkFlag } from "./js/checkflag";
+import { checkWin } from "./js/checkwin";
 import _, { size } from "lodash";
 
 function Field({ userField, field, start, setStart, setGameStatus }) {
