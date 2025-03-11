@@ -1,12 +1,25 @@
-# React + Vite
+# Sapper
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<img src="./src/assets/logo.svg" alt="Bombe" width="100" height="100">
 
-Currently, two official plugins are available:
+Dieses Spiel (Minesweeper) Entwickelt mit JavaScript (React). Es handelt sich um ein Logikspiel, bei dem Spieler strategisch Bomben entschärfen müssen, indem sie versteckte Felder auf einem Raster aufdecken. Ziel ist es, alle sicheren Felder zu finden, ohne auf eine Bombe zu stoßen.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Minesweeper war eines der ersten Spiele, das mit Windows-Betriebssystemen ausgeliefert wurde, und wurde entwickelt, um Benutzern das Konzept der rechten Maustaste näherzubringen. "Sapper" bringt dieses nostalgische Konzept in die heutige Zeit, indem es mit JavaScript und modernen Technologien wie React und Vite entwickelt wurde. Es ist ein großartiges Beispiel dafür, wie klassische Spiele neu interpretiert werden können, um sie für neue Generationen zugänglich zu machen.
 
-## Expanding the ESLint configuration
+## Benutzt
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- npm
+- React + Vite
+
+## Start
+
+```bash
+npm run install
+npm run dev
+```
+
+### Author
+
+> Felix Fischer
+
+Project Link: [https://github.com/payermann/web-sappeur](https://github.com/payermann/web-sappeur)
